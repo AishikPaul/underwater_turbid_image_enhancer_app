@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Turbidity Enhancer</title>
+  <style>
+    img { max-height: 300px; margin: 10px; border: 1px solid #ccc; }
+    .container { text-align: center; padding: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Water Turbidity Reduction Image Enhancer</h2>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" required>
+      <button type="submit">Enhance</button>
+    </form>
+
+    {% if result %}
+    <h3>Original vs Enhanced</h3>
+    <div>
+      <img src="{{ url_for('static', filename='input_preview.jpg') }}" alt="Input">
+      <img src="{{ url_for('static', filename='output_rgb.png') }}" alt="Enhanced RGB">
+      <img src="{{ url_for('static', filename='output_gray.png') }}" alt="Enhanced Gray">
+    </div>
+    <div>
+      <a href="{{ url_for('download', version='rgb') }}">Download RGB</a> |
+      <a href="{{ url_for('download', version='gray') }}">Download Gray</a>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
