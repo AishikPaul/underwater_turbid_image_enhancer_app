@@ -1,6 +1,7 @@
-Flask
+flask
 opencv-python
 opencv-contrib-python
 numpy
 Pillow
 matplotlib
+gunicorn
